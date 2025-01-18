@@ -1,0 +1,321 @@
+:root {
+    --active-color: #576470;
+    --secondary-bgColor: #E4E7EA;
+    --para-color: #F44747;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f0ed;
+    color: #333;
+}
+
+/* header */
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1215;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.nav-links {
+    display: flex;
+    column-gap: 20px;
+    list-style: none;
+    margin-right: 100px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--active-color);
+}
+
+.nav-log-cart {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    margin-right: 10px;
+}
+
+.nav-log-cart .btn {
+    border: 1px solid var(--active-color);
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.nav-log-cart .btn a {
+    text-decoration: none;
+    color: #576470;
+}
+
+.nav-log-cart .btn:hover {
+    background: snow;
+    color: #1c1215;
+}
+
+.nav-log-cart .btn:active {
+    background: var(--active-color);
+}
+
+.nav-log-cart span {
+    color: white;
+    cursor: pointer;
+}
+
+.nav-log-cart span i {
+    font-size: 1.4rem
+}
+
+.nav-log-cart button {
+    color: #fff;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+/* main */
+
+
+/* hero container */
+.hero {
+    background-color: var(--secondary-bgColor);
+    text-align: center;
+    padding: 2em 0;
+    color: #1c1215;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    /* font-weight: 800; */
+    margin-bottom: 0.2em;
+}
+
+.hero p {
+    color: var(--para-color);
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.hero p sup {
+    color: navy;
+    background-color: aquamarine;
+    padding: 5px;
+    border-radius: 50%;
+
+}
+
+.cta-btn {
+    border: 1px solid var(--active-color);
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    transition: background 0.2s ease;
+}
+
+.cta-btn:hover {
+    background: lightgray;
+    color: #1c1215;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.cta-btn:active {
+    background: whitesmoke;
+}
+
+/* common grid for all */
+
+.container h2 {
+    font-size: 2em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5em;
+    padding: 1em 4em;
+}
+
+/* category container */
+.categories {
+    text-align: center;
+    padding: 1em 0 4em 0;
+}
+
+.category {
+    padding: 0.5em;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #576470;
+    font-size: 0.8em;
+}
+
+.category img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.category h3 {
+    font-size: 1.25em;
+}
+
+/* fetured product container */
+.featured-products {
+    background-color: rgb(251, 249, 246);
+    text-align: center;
+    padding: 2em 0 4em 0;
+}
+
+.product {
+    background-color: #fff;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-size: 0.9em;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+}
+
+.product h3 {
+    font-size: 1em;
+    margin: 0.5em 0;
+}
+
+.product p {
+    color: #122f1a;
+    font-size: 0.9em;
+}
+
+/* testimonials container */
+.testimonials {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    /* border-bottom: 1px solid white; */
+}
+
+.testimonials h2 {
+    color: var(--secondary-bgColor);
+}
+
+.testimonial {
+    background-color: #576470;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-size: 0.9em;
+}
+
+.testimonial p {
+    color: rgb(194, 191, 191);
+    font-size: 1em;
+    text-align: center;
+    padding: 0.2em 0.7em;
+    font-style: italic;
+}
+
+.testimonial h3 {
+    font-size: 0.9em;
+    margin-top: 1em;
+    color: var(--para-color);
+}
+
+.testimonial .test-rating {
+    color: yellow;
+}
+
+
+/* footer part */
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+}
+
+#contact ul {
+    list-style-type: none;
+}
+
+#contact ul li {
+    gap: 5px;
+}
+
+#contact a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.call-text i {
+    color: green;
+    margin-bottom: 5px;
+}
+
+.e-mail i {
+    color: tomato;
+}
+
+.top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #1c1215;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-btn i {
+    color: white;
+}

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online E-Comm Store</title>
     <link rel="stylesheet" href="styles.css" />
-    <link
+    <script
+      src="https://kit.fontawesome.com/856e998fae.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-    />
+    /> -->
   </head>
   <body>
     <!-- header part start -->
     <header id="header">
       <div class="logo-container">
         <a href="#header"
-          ><img class="logo" src="./logo.png" alt="shop logo"
+          ><img class="logo" src="./assets/logo.png" alt="shop logo"
         /></a>
       </div>
       <nav class="navbar">
@@ -27,8 +31,8 @@
           <li><a href="#contact">Contact Us</a></li>
         </ul>
         <div class="nav-log-cart">
-          <button class="btn">Login</button>
-          <span class="material-symbols-outlined"> local_mall </span>
+          <button class="btn"><a href="./login.html">Login</a></button>
+          <span><i class="fa-solid fa-cart-shopping"></i></span>
         </div>
       </nav>
     </header>
@@ -38,9 +42,9 @@
     <main>
       <!-- hero section -->
       <section id="home" class="hero">
-        <div class="hero-container">
-          <h1>Welcome to Our Online Store</h1>
-          <p>Discover the best products at unbeatable price</p>
+        <div class="container">
+          <h2>Welcome to Our Online Store</h2>
+          <p>Discover the best products at unbeatable price <sup>new</sup></p>
           <button class="cta-btn">Shop Now</button>
         </div>
       </section>
@@ -48,82 +52,94 @@
       <!-- category section -->
       <section id="categories" class="categories">
         <div class="container">
-          <h2>CATEGORIES</h2>
+          <h2>Categories</h2>
           <div class="grid">
-            <div class="card">
-              <img
-                src="https://placehold.co/200?text=Electronics"
-                alt="Electronics"
-              />
-              <button>Electronics</button>
+            <div class="category">
+              <img src="./assets/electronics.png" alt="Electronics" />
+              <h3>Electronics</h3>
             </div>
-            <div class="card">
-              <img src="https://placehold.co/200?text=Fashion" alt="Fashion" />
-              <button>Fashion</button>
+            <div class="category">
+              <img src="./assets/fashion.png" alt="Fashion" />
+              <h3>Fashion</h3>
             </div>
-            <div class="card">
-              <img
-                src="https://placehold.co/200?text=Home Decor"
-                alt="Home Decor"
-              />
-              <button>Home Decor</button>
+            <div class="category">
+              <img src="./assets/homeDecor.png" alt="Home Decor" />
+              <h3>Home Decor</h3>
             </div>
-            <div class="card">
-              <img src="https://placehold.co/200?text=Books" alt="Books" />
-              <button>Books</button>
+            <div class="category">
+              <img src="./assets/books.png" alt="Books" />
+              <h3>Books</h3>
             </div>
           </div>
         </div>
       </section>
 
       <!-- product section -->
-      <section id="products" class="feature-products">
+      <section id="products" class="featured-products">
         <div class="container">
           <h2>Featured Products</h2>
           <div class="grid">
-            <div class="card">
+            <div class="product">
               <img
                 src="https://placehold.co/200?text=Product+1"
                 alt="Product 1"
               />
-              <p class="card-title"><b>Product1</b></p>
-              <p class="card-price">$49.99</p>
+              <h3 class="product-title"><b>Product1</b></h3>
+              <p class="product-price">$49.99</p>
             </div>
-            <div class="card">
+            <div class="product">
               <img
                 src="https://placehold.co/200?text=Product+2"
                 alt="Product 2"
               />
-              <p class="card-title"><b>Product2</b></p>
-              <p class="card-price">$49.99</p>
+              <h3 class="product-title"><b>Product2</b></h3>
+              <p class="product-price">$49.99</p>
             </div>
-            <div class="card">
+            <div class="product">
               <img
                 src="https://placehold.co/200?text=Product+3"
                 alt="Product 3"
               />
-              <p class="card-title"><b>Product3</b></p>
-              <p class="card-price">$49.99</p>
+              <h3 class="product-title"><b>Product3</b></h3>
+              <p class="product-price">$49.99</p>
             </div>
-            <div class="card">
+            <div class="product">
               <img
                 src="https://placehold.co/200?text=Product+4"
                 alt="Product 4"
               />
-              <p class="card-title"><b>Product4</b></p>
-              <p class="card-price">$49.99</p>
+              <h3 class="product-title"><b>Product4</b></h3>
+              <p class="product-price">$49.99</p>
             </div>
           </div>
         </div>
       </section>
       <!-- testimonials section -->
-      <section id="testimonials" class="testimonial">
+      <section id="testimonials" class="testimonials">
         <div class="container">
           <h2>Customer Testimonials</h2>
           <div class="grid">
-            <div class="card">
-              <p class="card-title"><b>Lorem ipsum dolor sit amet.</b></p>
-              <p class="card-price">****</p>
+            <div class="testimonial">
+              <p>
+                "Amazing products! Fast shipping and great customer service."
+              </p>
+              <h3>- Jhon Wick</h3>
+              <p class="test-rating">****</p>
+            </div>
+            <div class="testimonial">
+              <p>"I love shopping here. The prices are unbeatable."</p>
+              <h3>- Jane Smith</h3>
+              <p class="test-rating">****</p>
+            </div>
+            <div class="testimonial">
+              <p>"Fantastic quality. Will definitely buy again."</p>
+              <h3>- Bob Johnson</h3>
+              <p class="test-rating">****</p>
+            </div>
+            <div class="testimonial">
+              <p>"Great variety and easy to use website. Highly recommend!"</p>
+              <h3>- Alice Brown</h3>
+              <p class="test-rating">****</p>
             </div>
           </div>
         </div>
@@ -133,8 +149,25 @@
 
     <!-- footer part start -->
     <footer class="footer">
+      <div id="contact">
+        <ul>
+          <li>
+            <a href="tel:8877665544">
+              <span class="call-text"><i class="fa-solid fa-phone"></i></span>
+              180011223344
+            </a>
+          </li>
+          <li>
+            <a href="mailto:abc123@email.com">
+              <span class="e-mail"><i class="fa-solid fa-user"></i></span>
+              <b>onlinestore@shopping.com</b>
+            </a>
+          </li>
+        </ul>
+      </div>
       <p>&copy;copyright 2024: Your E-Commerce Store. All Right Reserved.</p>
     </footer>
+    <a class="top-btn" href="#header"><i class="fa-solid fa-arrow-up"></i></a>
     <!-- footer part end -->
   </body>
 </html>
