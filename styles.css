@@ -111,6 +111,7 @@ html {
     text-align: center;
     padding: 2em 0;
     color: #1c1215;
+    position: relative;
 }
 
 .hero h2 {
@@ -143,6 +144,15 @@ html {
     transition: background 0.2s ease;
 }
 
+.cta-btn a {
+    text-decoration: none;
+    color: var(--active-color);
+}
+
+.cta-btn a:hover {
+    color: #1c1215;
+}
+
 .cta-btn:hover {
     background: lightgray;
     color: #1c1215;
@@ -151,6 +161,40 @@ html {
 
 .cta-btn:active {
     background: whitesmoke;
+}
+
+.hero h2,
+.hero p:first-of-type {
+    animation: flash 2s forwards;
+}
+
+.flash-text {
+    font-size: 0.6em;
+    animation: flash1 2s forwards infinite;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash1 {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 /* common grid for all */
@@ -172,6 +216,11 @@ html {
     padding: 1em 0 4em 0;
 }
 
+.categories h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
 .category {
     padding: 0.5em;
     background-color: whitesmoke;
@@ -180,16 +229,23 @@ html {
     text-align: center;
     color: #576470;
     font-size: 0.8em;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .category img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .category h3 {
     font-size: 1.25em;
+}
+
+.category:hover {
+    transform: scale(1.05);
 }
 
 /* fetured product container */
@@ -199,6 +255,12 @@ html {
     padding: 2em 0 4em 0;
 }
 
+.featured-products .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
+}
+
 .product {
     background-color: #fff;
     text-align: center;
@@ -206,13 +268,15 @@ html {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     font-size: 0.9em;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .product img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .product h3 {
@@ -223,6 +287,64 @@ html {
 .product p {
     color: #122f1a;
     font-size: 0.9em;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* feature comparision table */
+
+.product-features {
+    padding: 2em 4em;
+    text-align: center;
+}
+
+.product-features h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.comparison-table {
+    width: 95%;
+    margin: 2em;
+    border-collapse: collapse;
+    border: 2px solid #333;
+    text-align: left;
+
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.5em;
+    border: 2px solid #333;
+}
+
+.comparison-table th {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.comparison-table td {
+    text-align: center;
 }
 
 /* testimonials container */
@@ -366,7 +488,7 @@ html {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: url('./assets/bg-form1.jpg');
+    background: url('./assets/bg-form.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -471,4 +593,82 @@ form {
 .form-text label:hover {
     text-decoration: underline;
     color: darkblue;
+}
+
+.product {
+    overflow: hidden;
+}
+
+.category {
+    overflow: hidden;
+}
+
+/* product card */
+
+.card-container {
+    padding: 2em;
+}
+
+.product-body {
+    background: url(./assets/bg-form.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.card-container h2 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 1px solid #070505;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.card-text {
+    color: #666;
+}
+
+.btn {
+    /* Utilizing Bootstrap utility classes */
+    margin-top: auto;
+    /* Align button to bottom of card body */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
 }
