@@ -156,7 +156,7 @@ html {
 .cta-btn:hover {
     background: lightgray;
     color: #1c1215;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
 }
 
 .cta-btn:active {
