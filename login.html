@@ -17,7 +17,12 @@
       <!-- Sign In form -->
       <div class="form signin-form">
         <h2>Sign In</h2>
-        <form action="#" method="post">
+        <form
+          id="signin-form"
+          action="#"
+          method="post"
+          onsubmit="return validateForm(event)"
+        >
           <input
             type="text"
             name="username"
@@ -43,24 +48,39 @@
       <!-- Sign Up form -->
       <div class="form signup-form">
         <h2>Create an account</h2>
-        <form action="#" method="post">
+        <form
+          id="signup-form"
+          action="#"
+          method="post"
+          onsubmit="return validateForm(event)"
+        >
           <input
             type="text"
             name="fullname"
             id="fullname"
             placeholder="Full Name"
+            required
           />
           <input
             type="email"
             name="username"
             id="username"
             placeholder="Username"
+            required
           />
           <input
             type="password"
             name="password"
             id="password"
             placeholder="Password"
+            required
+          />
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
           />
           <button type="submit">Sign Up</button>
         </form>
@@ -70,5 +90,42 @@
         </p>
       </div>
     </div>
+
+    <script>
+      function validateForm(event) {
+        const form = event.target;
+        const email = form.querySelector('input[name="email"]').value;
+        const password = form.querySelector('input[name="password"]').value;
+
+        if (form.id == "signup-form") {
+          const confirmPassword = form.querySelector(
+            'input[name="confirmPassword"]'
+          ).value;
+
+          if (password !== confirmPassword) {
+            alert("Password doesn't match");
+            event.preventDefault();
+            return false;
+          }
+
+          // localStorage.clear();
+          localStorage.setItem("userEmail", email);
+          localStorage.setItem("userPassword", password);
+          alert("Account Created Successfully");
+        }
+
+        if (form.id === "signin-form") {
+          const storedEmail = localStorage.getItem("userEmail");
+          const storedPassword = localStorage.getItem("userPassword");
+          if (email !== storedEmail || password !== storedPassword) {
+            alert("Invalid Email or Password");
+            event.preventDefault();
+            return false;
+          }
+          alert("Sign in Successfull");
+        }
+        return true;
+      }
+    </script>
   </body>
 </html>

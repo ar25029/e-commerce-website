@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Checkout</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cart-container">
+      <h1 class="cart-title">Shopping Cart</h1>
+      <div class="cart-items-container" id="cart-items">
+        <!-- cart item will be here -->
+      </div>
+      <div class="cart-summery">
+        <div class="cart-total" id="cart-total">Total: $121</div>
+        <button id="checkout-btn">checkout</button>
+      </div>
+    </div>
+    <script src="products.js"></script>
+    <script>
+      function initializeCart() {
+        localStorage.clear();
+        const initialCart = [
+          {
+            id: 1,
+            name: "Laptop",
+            price: 1200.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 2,
+            name: "Headphones",
+            price: 150.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 3,
+            name: "Mouse",
+            price: 25.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 4,
+            name: "Airpods",
+            price: 120.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 5,
+            name: "Cable",
+            price: 10.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 6,
+            name: "Keyboard",
+            price: 50.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 7,
+            name: "Cable",
+            price: 10.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+          {
+            id: 8,
+            name: "Keyboard",
+            price: 50.0,
+            quantity: 1,
+            image:
+              "https://placehold.co/400x300/f1c1b9/white?text=Premium+Leather+Bag",
+          },
+        ];
+
+        if (!localStorage.getItem("cart")) {
+          localStorage.setItem("cart", JSON.stringify(initialCart));
+        }
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeCart();
+
+        const cartItemContainer = document.getElementById("cart-items");
+        const cartTotalEle = document.getElementById("cart-total");
+        const checkoutBtnEle = document.getElementById("checkout-btn");
+
+        function loadCartItems() {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          if (cart.length > 0) {
+            cartItemContainer.innerHTML = "";
+            cart.forEach((product, index) => {
+              const cartItem = document.createElement("div");
+              cartItem.className = "cart-item";
+              cartItem.innerHTML = `
+              <img src=${product.image} alt=${product.image} />
+              <div class="cart-item-details">
+                  <h3 class="cart-item-title">${product.name}</h3>
+                  <p class="cart-item-price">$${product.price.toFixed(2)}</p>
+                  <div class="cart-item-actions">
+                     <input type="number" value="${
+                       product.quantity
+                     }" min="1" class="quantity-input">
+                     <button class="remove-button">Remove</button>
+                  </div>
+              </div>
+              `;
+              cartItemContainer.appendChild(cartItem);
+
+              // even listener for remove button
+              const qtyInput = document.querySelector(".quantity-input");
+              const removeBtn = document.querySelector(".remove-button");
+
+              removeBtn.addEventListener("click", () => {
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                loadCartItems();
+              });
+
+              qtyInput.addEventListener("change", (event) => {
+                product.quantity = parseInt(event.target.value);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartTotal();
+              });
+            });
+            updateCartTotal();
+          } else {
+            updateCartTotal();
+            cartItemContainer.innerHTML = `<p>Your cart is Empty.</p>`;
+          }
+        }
+
+        function updateCartTotal() {
+          let total = 0;
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.forEach((item) => {
+            total += item.price * item.quantity;
+          });
+          cartTotalEle.textContent = `Total: $${total.toFixed(2)}`;
+        }
+        loadCartItems();
+
+        // Handle checkout button click
+        checkoutBtnEle.addEventListener("click", () => {
+          alert("Proceeding to checkout");
+        });
+      });
+    </script>
+  </body>
+</html>

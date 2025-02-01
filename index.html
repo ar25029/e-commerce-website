@@ -26,13 +26,16 @@
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#categories">Categories</a></li>
-          <li><a href="#products">Products</a></li>
+          <li><a href="product_page.html">Products</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
         <div class="nav-log-cart">
           <button class="btn"><a href="./login.html">Login</a></button>
-          <span><i class="fa-solid fa-cart-shopping"></i></span>
+          <span
+            ><a href="shopping_cart.html"
+              ><i class="fa-solid fa-cart-shopping"></i></a
+          ></span>
         </div>
       </nav>
     </header>
@@ -83,39 +86,8 @@
       <section id="products" class="featured-products">
         <div class="container">
           <h2>Featured Products</h2>
-          <div class="grid">
-            <div class="product">
-              <img
-                src="https://placehold.co/200?text=Product+1"
-                alt="Product 1"
-              />
-              <h3 class="product-title"><b>Product1</b></h3>
-              <p class="product-price">$49.99</p>
-            </div>
-            <div class="product">
-              <img
-                src="https://placehold.co/200?text=Product+2"
-                alt="Product 2"
-              />
-              <h3 class="product-title"><b>Product2</b></h3>
-              <p class="product-price">$49.99</p>
-            </div>
-            <div class="product">
-              <img
-                src="https://placehold.co/200?text=Product+3"
-                alt="Product 3"
-              />
-              <h3 class="product-title"><b>Product3</b></h3>
-              <p class="product-price">$49.99</p>
-            </div>
-            <div class="product">
-              <img
-                src="https://placehold.co/200?text=Product+4"
-                alt="Product 4"
-              />
-              <h3 class="product-title"><b>Product4</b></h3>
-              <p class="product-price">$49.99</p>
-            </div>
+          <div class="grid" id="featured-products">
+            <!-- dynamic product added here -->
           </div>
         </div>
       </section>
@@ -224,5 +196,6 @@
       <p>&copy;copyright 2024: Your E-Commerce Store. All Right Reserved.</p>
     </footer>
     <!-- footer part end -->
+    <script src="script.js"></script>
   </body>
 </html>
