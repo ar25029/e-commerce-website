@@ -29,28 +29,38 @@
     <!-- <script src="products.js"></script> -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("cart"));
+        console.log(cart);
+
         fetch(`products.json`)
           .then((res) => res.json())
           .then((products) => {
             const productList = document.getElementById("product-list");
-            for (const product of products) {
+            products.forEach((product, index) => {
               const card = document.createElement("div");
               card.classList.add("col-lg-3", "col-md-4", "col-sm-6", "mb-4");
               card.innerHTML = `
-            <div class="card h-100">
-            <img src=${product.image} class="card-img-top" alt=${
+              <div class="card h-100">
+                <img src=${product.image} class="card-img-top" alt=${
                 product.image
               }/>
-            <div class="card-body">
+              <div class="card-body">
               <h5 class="card-title">${product.name}</h5>
-              <p class="card-txt">${product.description}</p>
+              <p class="card-txt">${product.description.split(".")[0] + "."}</p>
               <p class=" card-txt fw-bold">$${product.price.toFixed()}</p>
-              <a href="#" class="btn btn-primary">Add to cart</a>
-            </div>
-          </div>
+              <a href="#" class="btn btn-primary add-cart-btn">Add to cart</a>
+              </div>
+              </div>
             `;
               productList.appendChild(card);
-            }
+
+              const addBtn = card.querySelector(".add-cart-btn");
+              addBtn.addEventListener("click", () => {
+                cart.push({ id: cart.length + 1, ...product, quantity: 1 });
+                localStorage.setItem("cart", JSON.stringify(cart));
+                console.log(cart);
+              });
+            });
           });
       });
     </script>
