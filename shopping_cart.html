@@ -122,8 +122,8 @@
               cartItemContainer.appendChild(cartItem);
 
               // even listener for remove button
-              const qtyInput = document.querySelector(".quantity-input");
-              const removeBtn = document.querySelector(".remove-button");
+              const qtyInput = cartItem.querySelector(".quantity-input");
+              const removeBtn = cartItem.querySelector(".remove-button");
 
               removeBtn.addEventListener("click", () => {
                 cart.splice(index, 1);
